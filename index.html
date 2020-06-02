@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dist/circletype.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Antifa Generator</title>
+</head>
+
+<body>
+    <section class="logo">
+        <h2 class="logo-text" id="antifa-group"> Grupo </h2>
+        <h2 class="logo-text" id="antifa"> Antifacistas </h2>
+
+    </section>
+    <script>
+        const antifaGroup = document.getElementById('antifa-group')
+        const antifa = document.getElementById('antifa')
+        const radius = 500;
+
+        new CircleType(antifaGroup)
+            .radius(radius);
+
+        new CircleType(antifa)
+            .dir(-1)
+            .radius(radius);
+    </script>
+</body>
+
+</html>

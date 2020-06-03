@@ -1,4 +1,4 @@
-function writeBottomCircle(text, canvaId, diameter) {
+function writeBottomCircle(text, canvaId, diameter, color) {
   var canvas = document.getElementById(canvaId);
   writeCircularText(
     text.toUpperCase(),
@@ -9,11 +9,12 @@ function writeBottomCircle(text, canvaId, diameter) {
     '40',
     'Roboto',
     0,
-    0
+    0,
+    color
   );
 }
 
-function writeTopCircle(text, canvaId, diameter) {
+function writeTopCircle(text, canvaId, diameter, color) {
   var canvas = document.getElementById(canvaId);
   writeCircularText(
     text.toUpperCase(),
@@ -24,7 +25,8 @@ function writeTopCircle(text, canvaId, diameter) {
     '40',
     'Roboto',
     1,
-    0
+    0,
+    color
   );
 }
 
@@ -37,7 +39,8 @@ function writeCircularText(
   fontSize,
   fontFamily,
   inwardFacing,
-  kerning
+  kerning,
+  color
 ) {
   // declare and intialize canvas, reference, and useful variables
   align = align.toLowerCase();
@@ -52,7 +55,7 @@ function writeCircularText(
 
   // set text attributes
   ctxRef.font = `${fontSize}px ${fontFamily}`;
-  ctxRef.fillStyle = 'white';
+  ctxRef.fillStyle = color;
 
   // Reverse letters for align Left inward, align right outward
   // and align center inward.

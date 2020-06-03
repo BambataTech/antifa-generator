@@ -1,8 +1,6 @@
 #logo {
   display: flex;
   justify-items: center;
-  background-image: url('img/antifascist-action.svg');
-  background-repeat: no-repeat;
 }
 
 .logo-text {

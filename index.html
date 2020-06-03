@@ -15,8 +15,16 @@
         Your browser does not support the canvas element.
     </canvas>
     <script>
-        writeBottomCircle("Antifacistas", "logo", 510)
-        writeTopCircle("Desenvolvedores", "logo", 510)
+
+        const canvas = document.getElementById("logo");
+        ctx = canvas.getContext("2d");
+        const background = new Image();
+        background.src = 'https://raw.githubusercontent.com/BambataTech/antifa-generator/master/img/antifascist-action.png';
+        background.onload = function () {
+            ctx.drawImage(background, 0, 0, 500, 500);
+            writeTopCircle("Programadores", "logo", 510, "white")
+            writeBottomCircle("Antifacistas", "logo", 510, "white")
+        }
     </script>
 </body>
 

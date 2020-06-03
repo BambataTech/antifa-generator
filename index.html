@@ -4,35 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="dist/circletype.min.js"></script>
+    <script src="dist/circletext.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Antifa Generator</title>
 </head>
 
 <body>
-    <section class="logo">
-        <div id="top-text">
-            <h2 class="logo-text" id="antifa-group"> Desenvolvedores </h2>
-        </div>
-        <div id="bottom-text">
-            <h2 class="logo-text" id="antifa"> Antifacistas </h2>
-        </div>
-
-    </section>
+    <canvas id="logo" width="500" height="500">
+        Your browser does not support the canvas element.
+    </canvas>
     <script>
-        const antifaGroup = document.getElementById('antifa-group')
-        const antifa = document.getElementById('antifa')
-        const logo = document.getElementsByClassName('logo')[0]
-        const radius = logo.offsetHeight / 2;
-        console.log('radius :>> ', radius);
-
-        new CircleType(antifaGroup)
-            .radius(radius);
-
-        new CircleType(antifa)
-            .dir(-1)
-            .radius(radius);
+        writeBottomCircle("Antifacistas", "logo", 510)
+        writeTopCircle("Desenvolvedores", "logo", 510)
     </script>
 </body>
 

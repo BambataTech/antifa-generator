@@ -1,16 +1,14 @@
-.logo {
+#logo {
   display: flex;
   justify-items: center;
   background-image: url('img/antifascist-action.svg');
   background-repeat: no-repeat;
-  height: 1000px;
-  width: 1000px;
 }
 
 .logo-text {
   display: flex;
   margin: 0;
-  color: white;
+  color: red;
   font-size: 80px;
   padding: 1%;
   font-family: 'Roboto', sans-serif;
@@ -18,10 +16,9 @@
 }
 
 #top-text {
-  padding-left: 50%;
 }
 
 #bottom-text {
   /* padding-top: 80%; */
-  align-self: flex-end;
+  /* align-self: flex-end; */
 }

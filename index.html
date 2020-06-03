@@ -6,26 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="dist/circletext.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/forms.css">
     <title>Antifa Generator</title>
 </head>
 
 <body>
-    <canvas id="logo" width="500" height="500">
-        Your browser does not support the canvas element.
+    <div class="container">
+        <form>
+            <h1>Antifa Generator</h1>
+            <div class="form-group">
+                <input id="antifa-group" type="text" required="required" />
+                <label for="input" class="control-label">Digite o grupo a qual você pertence</label><i class="bar"></i>
+            </div>
+            <div class="form-group">
+                <select id='antifa-label'>
+                    <option>Antifacista</option>
+                    <option>Antifacistas</option>
+                </select>
+                <label for="select" class="control-label"></label><i class="bar"></i>
+            </div>
+        </form>
+        <div class="button-container">
+            <button type="button" class="button" onClick="generateImage()"><span>Gerar imagem</span></button>
+        </div>
+    </div>
+
+    <canvas id="logo" height="500" width="500">
+        Seu navegador não suporta canvas
     </canvas>
+
     <script>
 
-        const canvas = document.getElementById("logo");
-        ctx = canvas.getContext("2d");
-        const background = new Image();
-        background.src = 'https://raw.githubusercontent.com/BambataTech/antifa-generator/master/img/antifascist-action.png';
-        background.onload = function () {
-            ctx.drawImage(background, 0, 0, 500, 500);
-            writeTopCircle("Programadores", "logo", 510, "white")
-            writeBottomCircle("Antifacistas", "logo", 510, "white")
-        }
     </script>
+    <script>
+        const button = document.querySelector('.button');
+        button.onclick = function generateImage() {
+            antifaGroup = document.getElementById('antifa-group')
+            antifaLabel = document.getElementById('antifa-label')
+            console.log('antifaGropup.value :>> ', antifaGroup.value);
+            console.log('antifaLabel.value :>> ', antifaLabel.value);
+
+            const logoCanvas = document.getElementById('logo')
+            ctx = logoCanvas.getContext("2d");
+            const background = new Image();
+            background.src = 'https://raw.githubusercontent.com/BambataTech/antifa-generator/master/img/antifascist-action.png';
+            background.onload = function () {
+                ctx.drawImage(background, 0, 0, 500, 500);
+                writeTopCircle(antifaGroup.value, "logo", 510, "white")
+                writeBottomCircle(antifaLabel.value, "logo", 510, "white")
+            }
+            document.querySelector('.container').remove()
+        };
+
+
+    </script>
+
 </body>
 
 </html>

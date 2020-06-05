@@ -17,7 +17,7 @@
             <h1>Antifa Generator</h1>
             <div class="form-group">
                 <input id="antifa-group" type="text" required="required" />
-                <label for="input" class="control-label">Digite o grupo a qual você pertence</label><i class="bar"></i>
+                <label for="input" class="control-label">Grupo</label><i class="bar"></i>
             </div>
             <div class="form-group">
                 <select id='antifa-label'>
@@ -27,11 +27,12 @@
                 <label for="select" class="control-label"></label><i class="bar"></i>
             </div>
         </form>
-
-
         <div class="button-container">
             <button type="button" class="button" onClick="generateImage()"><span>Gerar imagem</span></button>
             <button type="button" class="button" onClick="downloadImage()"><span>Baixar</span></button>
+            <button type="button" class="button"
+                onclick="window.open('https://medium.com/@matheusMmota/antifascismo-n%C3%A3o-%C3%A9-moldura-para-o-seu-perfil-d648c1b3caa8')"><span>Antifacista?</span></button>
+
         </div>
 
 
@@ -46,10 +47,7 @@
         function generateImage() {
             antifaGroup = document.getElementById('antifa-group')
             antifaLabel = document.getElementById('antifa-label')
-            console.log('antifaGropup.value :>> ', antifaGroup.value);
-            console.log('antifaLabel.value :>> ', antifaLabel.value);
 
-            // const logoCanvas = document.getElementById('logo')
             ctx = logoCanvas.getContext("2d");
             const background = new Image();
             background.src = 'img/antifascist-action.png';

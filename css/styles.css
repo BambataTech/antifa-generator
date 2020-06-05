@@ -1,5 +1,10 @@
+body {
+  background-color: #eee;
+}
+
 #logo {
   display: flex;
   padding: 2%;
   display: none;
+  width: 100%;
 }

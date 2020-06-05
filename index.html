@@ -27,37 +27,50 @@
                 <label for="select" class="control-label"></label><i class="bar"></i>
             </div>
         </form>
+
+
         <div class="button-container">
             <button type="button" class="button" onClick="generateImage()"><span>Gerar imagem</span></button>
+            <button type="button" class="button" onClick="downloadImage()"><span>Baixar</span></button>
         </div>
+
+
+        <canvas id="logo" height="500" width="500">
+            Seu navegador não suporta canvas
+        </canvas>
     </div>
-
-    <canvas id="logo" height="500" width="500">
-        Seu navegador não suporta canvas
-    </canvas>
-
-    <script>
-
-    </script>
     <script>
         const button = document.querySelector('.button');
-        button.onclick = function generateImage() {
+        const logoCanvas = document.getElementById('logo')
+
+        function generateImage() {
             antifaGroup = document.getElementById('antifa-group')
             antifaLabel = document.getElementById('antifa-label')
             console.log('antifaGropup.value :>> ', antifaGroup.value);
             console.log('antifaLabel.value :>> ', antifaLabel.value);
 
-            const logoCanvas = document.getElementById('logo')
+            // const logoCanvas = document.getElementById('logo')
             ctx = logoCanvas.getContext("2d");
             const background = new Image();
-            background.src = 'https://raw.githubusercontent.com/BambataTech/antifa-generator/master/img/antifascist-action.png';
+            background.src = 'img/antifascist-action.png';
             background.onload = function () {
                 ctx.drawImage(background, 0, 0, 500, 500);
                 writeTopCircle(antifaGroup.value, "logo", 510, "white")
                 writeBottomCircle(antifaLabel.value, "logo", 510, "white")
+                logoCanvas.style.display = "flex"
             }
-            document.querySelector('.container').remove()
         };
+
+        function downloadImage() {
+            const img = logoCanvas.toDataURL("image/png");
+            console.log('img :>> ', img);
+            const link = document.createElement('a');
+            link.href = img;
+            link.download = 'Download.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
 
     </script>
